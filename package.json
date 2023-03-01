@@ -1,0 +1,38 @@
+{
+  "name": "vs_untar_ms",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "author": "z4yross <z4yross@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run prod",
+    "server": "node -r dotenv/config ./server/bin/main",
+    "dev": "cross-env NODE_ENV=development npm-run-all server",
+    "prod": "cross-env NODE_ENV=production npm-run-all server",
+    "watch:dev": "nodemon",
+    "test": "jest"
+  },
+  "nodemonConfig": {
+    "exec": "npm run dev",
+    "watch": [
+      "server/*",
+      "public/*"
+    ],
+    "ignore": [
+      "**/__tests__/**",
+      "*.test.js",
+      "*.spec.js"
+    ]
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "debug": "^4.3.4",
+    "dotenv": "^16.0.3",
+    "npm-run-all": "^4.1.5"
+  }
+}
